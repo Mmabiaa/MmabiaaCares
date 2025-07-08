@@ -184,8 +184,18 @@ export default function ProgramsPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-50 to-gray-100">
-        <div className="container mx-auto px-4">
+      <section className="relative py-20 bg-gradient-to-r from-gray-50 to-gray-100 overflow-hidden">
+        {/* Background image */}
+        <Image
+          src="https://i.pinimg.com/736x/96/59/b6/9659b6909a3416d27c50c875e00a403a.jpg"
+          alt="Programs background"
+          fill
+          className="object-cover z-0"
+          priority
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-6 bg-black text-white">Our Programs</Badge>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
