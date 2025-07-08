@@ -26,6 +26,8 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+// Import carousel components
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 
 // Animated counter component
 function AnimatedCounter({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) {
@@ -84,6 +86,15 @@ const testimonials = [
       "Volunteering with Mmabiaa Cares has been life-changing. We're not just helping others - we're building stronger communities together.",
     image: "/placeholder.svg?height=80&width=80",
   },
+]
+
+// Hero carousel images (update this array to change images)
+const heroCarouselImages = [
+  "https://i.pinimg.com/736x/7d/1a/a3/7d1aa30d26fa23d48604aea4f85e79e4.jpg",
+  "https://i.pinimg.com/736x/93/f4/56/93f456a574e3e7f538da7355b5d8c7c0.jpg",
+  "https://i.pinimg.com/736x/66/0e/ef/660eef3ef655750b7f5940a88098e314.jpg",
+  "https://i.pinimg.com/736x/b3/ca/59/b3ca59412cafcf6e12dc8b243470b9ba.jpg",
+  "https://i.pinimg.com/736x/f7/d7/d0/f7d7d0ccfd7bbf564ec2a7df2023c618.jpg"
 ]
 
 export default function HomePage() {
@@ -146,15 +157,24 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0 w-full h-full">
+          <Carousel opts={{ loop: true }}>
+            <CarouselContent>
+              {heroCarouselImages.map((img, idx) => (
+                <CarouselItem key={idx} className="relative w-full h-full min-h-[90vh]">
+                  <Image
+                    src={img}
+                    alt={`Hero carousel image ${idx + 1}`}
+                    fill
+                    className="object-cover"
+                    priority={idx === 0}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10"></div>
-        <Image
-          src="https://i.pinimg.com/736x/7d/1a/a3/7d1aa30d26fa23d48604aea4f85e79e4.jpg"
-          alt="Children in Ghana receiving meals from Mmabiaa Cares volunteers"
-          fill
-          className="object-cover"
-          priority
-        />
-
         <div className="relative z-20 container mx-auto px-4 text-center text-white">
           <Badge className="mb-6 bg-black/90 text-white border-0 px-4 py-2">Faith • Hope • Community</Badge>
 
