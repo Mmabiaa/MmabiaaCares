@@ -442,7 +442,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden">
               <div className="relative h-48">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="https://i.pinimg.com/736x/d6/54/49/d654491917a8ef5733318227b28971dd.jpg"
                   alt="Healthcare program"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -467,7 +467,7 @@ export default function HomePage() {
             <Card className="group hover:shadow-xl transition-all duration-300 border-0 overflow-hidden">
               <div className="relative h-48">
                 <Image
-                  src="/placeholder.svg?height=200&width=300"
+                  src="https://i.pinimg.com/736x/b3/b1/1b/b3b11bc41ebf1eed175464a4116554a5.jpg"
                   alt="Women and children empowerment"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
