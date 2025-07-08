@@ -23,6 +23,12 @@ import {
   Facebook,
   Instagram,
   Twitter,
+  Home,
+  Info,
+  Target,
+  HandHeart,
+  Menu,
+  X,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -106,6 +112,7 @@ export default function HomePage() {
   // Carousel API for hero section
   const [carouselApi, setCarouselApi] = useState<UseEmblaCarouselType[1] | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("home")
 
   // Lock background scroll when mobile menu is open
   useEffect(() => {
@@ -136,102 +143,150 @@ export default function HomePage() {
     return () => clearInterval(interval)
   }, [])
 
+  // Navigation items for bottom bar
+  const navItems = [
+    { id: "home", label: "Home", icon: Home, href: "/" },
+    { id: "about", label: "About", icon: Info, href: "/about" },
+    { id: "programs", label: "Programs", icon: Target, href: "/programs" },
+    { id: "impact", label: "Impact", icon: Heart, href: "/impact" },
+    { id: "volunteer", label: "Volunteer", icon: HandHeart, href: "/volunteer" },
+  ]
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-amber-100">
-        <div className="container mx-auto px-4 py-4">
+    <div className="min-h-screen bg-white pb-20 md:pb-0">
+      {/* Top Header - Branding Only */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 dark:bg-gray-900/95 dark:border-gray-800">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 bg-black dark:bg-white rounded-full flex items-center justify-center group-hover:scale-105 transition-transform">
+                <Heart className="w-6 h-6 text-white dark:text-black" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">Mmabiaa Cares</h1>
-                <p className="text-xs text-gray-600">Transforming Communities</p>
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white">Mmabiaa Cares</h1>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Transforming Communities</p>
               </div>
-            </div>
+            </Link>
 
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/about" className="text-gray-700 hover:text-black transition-colors">
-                About
-              </Link>
-              <Link href="/programs" className="text-gray-700 hover:text-black transition-colors">
-                Programs
-              </Link>
-              <Link href="/impact" className="text-gray-700 hover:text-black transition-colors">
-                Impact
-              </Link>
-              <Link href="/volunteer" className="text-gray-700 hover:text-black transition-colors">
-                Volunteer
-              </Link>
-              <Button className="bg-black hover:bg-gray-800 text-white">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-6">
+              {navItems.slice(1).map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-medium"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Button className="bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black">
                 <Link href="/donate">Donate Now</Link>
               </Button>
               <ThemeToggle />
             </nav>
 
-            {/* Mobile menu button */}
-            <Button variant="ghost" className="md:hidden" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
-              <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-                <div className="w-full h-0.5 bg-gray-600"></div>
-                <div className="w-full h-0.5 bg-gray-600"></div>
-                <div className="w-full h-0.5 bg-gray-600"></div>
-              </div>
-            </Button>
-            {/* Mobile menu drawer */}
-            {mobileMenuOpen && (
-              <>
-                {/* Backdrop */}
-                <div className="fixed inset-0 z-40 bg-black/40 transition-opacity md:hidden" aria-hidden="true" onClick={() => setMobileMenuOpen(false)} />
-                {/* Drawer */}
-                <aside
-                  className="fixed top-0 right-0 z-50 h-full w-4/5 max-w-xs bg-white dark:bg-gray-900 shadow-lg flex flex-col transition-transform duration-300 md:hidden"
-                  style={{ transform: mobileMenuOpen ? "translateX(0%)" : "translateX(100%)" }}
-                  aria-modal="true"
-                  role="dialog"
-                >
-                  <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-800">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
-                        <Heart className="w-5 h-5 text-white" />
-                      </div>
-                      <span className="text-lg font-bold text-gray-900 dark:text-white">Mmabiaa Cares</span>
-                    </div>
-                    <button
-                      className="text-gray-700 dark:text-white text-3xl focus:outline-none"
-                      onClick={() => setMobileMenuOpen(false)}
-                      aria-label="Close menu"
-                    >
-                      &times;
-                    </button>
-                  </div>
-                  <nav className="flex flex-col gap-2 px-6 py-6 flex-1">
-                    <Link href="/about" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
-                      About
-                    </Link>
-                    <Link href="/programs" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
-                      Programs
-                    </Link>
-                    <Link href="/impact" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
-                      Impact
-                    </Link>
-                    <Link href="/volunteer" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
-                      Volunteer
-                    </Link>
-                    <Link href="/donate" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
-                      Donate Now
-                    </Link>
-                  </nav>
-                  <div className="px-6 pb-6">
-                    <ThemeToggle />
-                  </div>
-                </aside>
-              </>
-            )}
+            {/* Mobile Actions */}
+            <div className="flex items-center space-x-2 lg:hidden">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open menu"
+                className="p-2"
+              >
+                <Menu className="w-5 h-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm lg:hidden" 
+            aria-hidden="true" 
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          
+          {/* Menu Panel */}
+          <div className="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-gray-900 shadow-2xl lg:hidden">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-black dark:bg-white rounded-full flex items-center justify-center">
+                    <Heart className="w-5 h-5 text-white dark:text-black" />
+                  </div>
+                  <span className="text-lg font-bold text-gray-900 dark:text-white">Menu</span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                  className="p-2"
+                >
+                  <X className="w-5 h-5" />
+                </Button>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex-1 px-6 py-6 space-y-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Donate Button */}
+              <div className="p-6 border-t border-gray-200 dark:border-gray-800">
+                <Button className="w-full bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black font-semibold py-3">
+                  <Heart className="w-4 h-4 mr-2" />
+                  Donate Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Bottom Navigation Bar - Mobile Only */}
+      <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 lg:hidden">
+        <div className="flex justify-around items-center px-2 py-2">
+          {navItems.map((item) => {
+            const Icon = item.icon
+            const isActive = activeSection === item.id
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-all duration-200 min-w-[60px] ${
+                  isActive
+                    ? "text-black dark:text-white bg-gray-100 dark:bg-gray-800"
+                    : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+                }`}
+                onClick={() => setActiveSection(item.id)}
+                aria-label={`Navigate to ${item.label}`}
+              >
+                <Icon className={`w-5 h-5 mb-1 ${isActive ? "scale-110" : ""} transition-transform`} />
+                <span className="text-xs font-medium">{item.label}</span>
+              </Link>
+            )
+          })}
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
