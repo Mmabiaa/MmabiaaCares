@@ -27,7 +27,8 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 // Import carousel components
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
+import type { UseEmblaCarouselType } from "embla-carousel-react"
 
 // Animated counter component
 function AnimatedCounter({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) {
@@ -94,12 +95,24 @@ const heroCarouselImages = [
   "https://i.pinimg.com/736x/93/f4/56/93f456a574e3e7f538da7355b5d8c7c0.jpg",
   "https://i.pinimg.com/736x/66/0e/ef/660eef3ef655750b7f5940a88098e314.jpg",
   "https://i.pinimg.com/736x/b3/ca/59/b3ca59412cafcf6e12dc8b243470b9ba.jpg",
-  "https://i.pinimg.com/736x/f7/d7/d0/f7d7d0ccfd7bbf564ec2a7df2023c618.jpg"
+  "https://i.pinimg.com/736x/f7/d7/d0/f7d7d0ccfd7bbf564ec2a7df2023c618.jpg",
+  "https://i.pinimg.com/736x/01/ee/d8/01eed8876e5fcb994542f3c931faedc5.jpg"
 ]
 
 export default function HomePage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  // Carousel API for hero section
+  const [carouselApi, setCarouselApi] = useState<UseEmblaCarouselType[1] | null>(null)
+
+  // Auto-advance hero carousel every 7 seconds
+  useEffect(() => {
+    if (!carouselApi) return
+    const interval = setInterval(() => {
+      carouselApi.scrollNext()
+    }, 7000)
+    return () => clearInterval(interval)
+  }, [carouselApi])
 
   // Auto-rotate testimonials
   useEffect(() => {
@@ -158,7 +171,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0 w-full h-full">
-          <Carousel opts={{ loop: true }}>
+          <Carousel opts={{ loop: true }} setApi={setCarouselApi}>
             <CarouselContent>
               {heroCarouselImages.map((img, idx) => (
                 <CarouselItem key={idx} className="relative w-full h-full min-h-[90vh]">
@@ -172,6 +185,9 @@ export default function HomePage() {
                 </CarouselItem>
               ))}
             </CarouselContent>
+            {/* Carousel navigation buttons */}
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-black" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-black" />
           </Carousel>
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10"></div>
