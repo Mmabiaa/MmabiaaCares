@@ -104,6 +104,7 @@ export default function AboutPage() {
     { id: "programs", label: "Programs", icon: Target, href: "/programs" },
     { id: "impact", label: "Impact", icon: Heart, href: "/impact" },
     { id: "volunteer", label: "Volunteer", icon: HandHeart, href: "/volunteer" },
+    { id: "donate", label: "Donate", icon: Heart, href: "/donate" },
   ]
 
   return (

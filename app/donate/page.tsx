@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -8,9 +8,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Heart, Shield, CreditCard, Smartphone, Building, Gift, Star, Lock, CheckCircle } from "lucide-react"
+import { Heart, Shield, CreditCard, Smartphone, Building, Gift, Star, Lock, CheckCircle, Home, Info, Target, HandHeart, Menu, X } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 
 const donationAmounts = [25, 50, 100, 250, 500, 1000]
 
@@ -38,46 +39,172 @@ export default function DonatePage() {
   const [selectedProgram, setSelectedProgram] = useState("general")
   const [paymentMethod, setPaymentMethod] = useState("card")
   const [dedicateGift, setDedicateGift] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("donate")
+
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [mobileMenuOpen])
+
+  // Navigation items for bottom bar
+  const navItems = [
+    { id: "home", label: "Home", icon: Home, href: "/" },
+    { id: "about", label: "About", icon: Info, href: "/about" },
+    { id: "programs", label: "Programs", icon: Target, href: "/programs" },
+    { id: "impact", label: "Impact", icon: Heart, href: "/impact" },
+    { id: "volunteer", label: "Volunteer", icon: HandHeart, href: "/volunteer" },
+    { id: "donate", label: "Donate", icon: Heart, href: "/donate" },
+  ]
 
   const finalAmount = selectedAmount || Number.parseInt(customAmount) || 0
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
-        <div className="container mx-auto px-4 py-4">
+    <div className="min-h-screen bg-white pb-20 md:pb-0">
+      {/* Top Header - Branding Only */}
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-gray-200 dark:bg-gray-900/95 dark:border-gray-800">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                <Heart className="w-6 h-6 text-white" />
+            {/* Logo */}
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 bg-black dark:bg-white rounded-full flex items-center justify-center group-hover:scale-105 transition-transform">
+                <Heart className="w-6 h-6 text-white dark:text-black" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">Mmabiaa Cares</h1>
-                <p className="text-xs text-gray-600">Transforming Communities</p>
+                <h1 className="text-xl font-bold text-gray-900 dark:text-white">Mmabiaa Cares</h1>
+                <p className="text-xs text-gray-600 dark:text-gray-400">Transforming Communities</p>
               </div>
             </Link>
 
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link href="/" className="text-gray-700 hover:text-black transition-colors">
-                Home
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-black transition-colors">
-                About
-              </Link>
-              <Link href="/programs" className="text-gray-700 hover:text-black transition-colors">
-                Programs
-              </Link>
-              <Link href="/impact" className="text-gray-700 hover:text-black transition-colors">
-                Impact
-              </Link>
-              <Link href="/volunteer" className="text-gray-700 hover:text-black transition-colors">
-                Volunteer
-              </Link>
-              <Button className="bg-black hover:bg-gray-800 text-white">Donate Now</Button>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-6">
+              {navItems.slice(1).map((item) => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className={`transition-colors font-medium ${
+                    item.id === "donate"
+                      ? "text-black dark:text-white"
+                      : "text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Button className="bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black">
+                <Link href="/donate">Donate Now</Link>
+              </Button>
+              <ThemeToggle />
             </nav>
+
+            {/* Mobile Actions */}
+            <div className="flex items-center space-x-2 lg:hidden">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open menu"
+                className="p-2"
+              >
+                <Menu className="w-5 h-5" />
+              </Button>
+            </div>
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm lg:hidden" 
+            aria-hidden="true" 
+            onClick={() => setMobileMenuOpen(false)}
+          />
+          
+          {/* Menu Panel */}
+          <div className="fixed inset-y-0 right-0 z-50 w-80 max-w-[85vw] bg-white dark:bg-gray-900 shadow-2xl lg:hidden">
+            <div className="flex flex-col h-full">
+              {/* Header */}
+              <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-black dark:bg-white rounded-full flex items-center justify-center">
+                    <Heart className="w-5 h-5 text-white dark:text-black" />
+                  </div>
+                  <span className="text-lg font-bold text-gray-900 dark:text-white">Menu</span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                  className="p-2"
+                >
+                  <X className="w-5 h-5" />
+                </Button>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex-1 px-6 py-6 space-y-2">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    className="flex items-center space-x-3 px-4 py-3 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <item.icon className="w-5 h-5" />
+                    <span>{item.label}</span>
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Donate Button */}
+              <div className="p-6 border-t border-gray-200 dark:border-gray-800">
+                <Button className="w-full bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black font-semibold py-3">
+                  <Heart className="w-4 h-4 mr-2" />
+                  Donate Now
+                </Button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Bottom Navigation Bar - Mobile Only */}
+      <nav className="fixed bottom-0 left-0 right-0 z-30 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 lg:hidden">
+        <div className="flex justify-around items-center px-2 py-2">
+          {navItems.map((item) => {
+            const Icon = item.icon
+            const isActive = activeSection === item.id
+            return (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg transition-all duration-200 min-w-[60px] ${
+                  isActive
+                    ? "text-black dark:text-white bg-gray-100 dark:bg-gray-800"
+                    : "text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800"
+                }`}
+                onClick={() => setActiveSection(item.id)}
+                aria-label={`Navigate to ${item.label}`}
+              >
+                <Icon className={`w-5 h-5 mb-1 ${isActive ? "scale-110" : ""} transition-transform`} />
+                <span className="text-xs font-medium">{item.label}</span>
+              </Link>
+            )
+          })}
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <section className="relative py-12 bg-gradient-to-r from-gray-50 to-gray-100 overflow-hidden">
@@ -94,15 +221,15 @@ export default function DonatePage() {
         <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-6 bg-black text-white">Secure Donation</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Transform Lives with
-              <span className="block text-black">Your Generosity</span>
+              <span className="block text-white">Your Generosity</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
               Every donation directly impacts communities across Ghana. 100% of your contribution goes to programs -
               administrative costs are covered by separate grants.
             </p>
-            <div className="flex items-center justify-center space-x-6 text-sm text-gray-600">
+            <div className="flex items-center justify-center space-x-6 text-sm text-white/80">
               <div className="flex items-center">
                 <Lock className="w-4 h-4 mr-2" />
                 SSL Secured
