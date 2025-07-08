@@ -29,6 +29,7 @@ import Link from "next/link"
 // Import carousel components
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 import type { UseEmblaCarouselType } from "embla-carousel-react"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 
 // Animated counter component
 function AnimatedCounter({ end, duration = 2000, suffix = "" }: { end: number; duration?: number; suffix?: string }) {
@@ -104,6 +105,19 @@ export default function HomePage() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   // Carousel API for hero section
   const [carouselApi, setCarouselApi] = useState<UseEmblaCarouselType[1] | null>(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  // Lock background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [mobileMenuOpen])
 
   // Auto-advance hero carousel every 7 seconds
   useEffect(() => {
@@ -154,16 +168,67 @@ export default function HomePage() {
               <Button className="bg-black hover:bg-gray-800 text-white">
                 <Link href="/donate">Donate Now</Link>
               </Button>
+              <ThemeToggle />
             </nav>
 
             {/* Mobile menu button */}
-            <Button variant="ghost" className="md:hidden">
+            <Button variant="ghost" className="md:hidden" onClick={() => setMobileMenuOpen(true)} aria-label="Open menu">
               <div className="w-6 h-6 flex flex-col justify-center space-y-1">
                 <div className="w-full h-0.5 bg-gray-600"></div>
                 <div className="w-full h-0.5 bg-gray-600"></div>
                 <div className="w-full h-0.5 bg-gray-600"></div>
               </div>
             </Button>
+            {/* Mobile menu drawer */}
+            {mobileMenuOpen && (
+              <>
+                {/* Backdrop */}
+                <div className="fixed inset-0 z-40 bg-black/40 transition-opacity md:hidden" aria-hidden="true" onClick={() => setMobileMenuOpen(false)} />
+                {/* Drawer */}
+                <aside
+                  className="fixed top-0 right-0 z-50 h-full w-4/5 max-w-xs bg-white dark:bg-gray-900 shadow-lg flex flex-col transition-transform duration-300 md:hidden"
+                  style={{ transform: mobileMenuOpen ? "translateX(0%)" : "translateX(100%)" }}
+                  aria-modal="true"
+                  role="dialog"
+                >
+                  <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 dark:border-gray-800">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center">
+                        <Heart className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-lg font-bold text-gray-900 dark:text-white">Mmabiaa Cares</span>
+                    </div>
+                    <button
+                      className="text-gray-700 dark:text-white text-3xl focus:outline-none"
+                      onClick={() => setMobileMenuOpen(false)}
+                      aria-label="Close menu"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                  <nav className="flex flex-col gap-2 px-6 py-6 flex-1">
+                    <Link href="/about" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
+                      About
+                    </Link>
+                    <Link href="/programs" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
+                      Programs
+                    </Link>
+                    <Link href="/impact" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
+                      Impact
+                    </Link>
+                    <Link href="/volunteer" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
+                      Volunteer
+                    </Link>
+                    <Link href="/donate" className="text-gray-900 dark:text-white text-lg font-medium py-3 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" onClick={() => setMobileMenuOpen(false)}>
+                      Donate Now
+                    </Link>
+                  </nav>
+                  <div className="px-6 pb-6">
+                    <ThemeToggle />
+                  </div>
+                </aside>
+              </>
+            )}
           </div>
         </div>
       </header>
