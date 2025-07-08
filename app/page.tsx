@@ -115,19 +115,21 @@ export default function HomePage() {
             </div>
 
             <nav className="hidden md:flex items-center space-x-6">
-              <Link href="#about" className="text-gray-700 hover:text-black transition-colors">
+              <Link href="/about" className="text-gray-700 hover:text-black transition-colors">
                 About
               </Link>
-              <Link href="#programs" className="text-gray-700 hover:text-black transition-colors">
+              <Link href="/programs" className="text-gray-700 hover:text-black transition-colors">
                 Programs
               </Link>
-              <Link href="#impact" className="text-gray-700 hover:text-black transition-colors">
+              <Link href="/impact" className="text-gray-700 hover:text-black transition-colors">
                 Impact
               </Link>
-              <Link href="#volunteer" className="text-gray-700 hover:text-black transition-colors">
+              <Link href="/volunteer" className="text-gray-700 hover:text-black transition-colors">
                 Volunteer
               </Link>
-              <Button className="bg-black hover:bg-gray-800 text-white">Donate Now</Button>
+              <Button className="bg-black hover:bg-gray-800 text-white">
+                <Link href="/donate">Donate Now</Link>
+              </Button>
             </nav>
 
             {/* Mobile menu button */}
@@ -146,7 +148,7 @@ export default function HomePage() {
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10"></div>
         <Image
-          src="/placeholder.svg?height=800&width=1200"
+          src="https://i.pinimg.com/736x/7d/1a/a3/7d1aa30d26fa23d48604aea4f85e79e4.jpg"
           alt="Children in Ghana receiving meals from Mmabiaa Cares volunteers"
           fill
           className="object-cover"
@@ -604,27 +606,27 @@ export default function HomePage() {
               <h4 className="font-semibold mb-4">Quick Links</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="#about" className="hover:text-white transition-colors">
+                  <Link href="/about" className="hover:text-white transition-colors">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#programs" className="hover:text-white transition-colors">
+                  <Link href="/programs" className="hover:text-white transition-colors">
                     Our Programs
                   </Link>
                 </li>
                 <li>
-                  <Link href="#impact" className="hover:text-white transition-colors">
+                  <Link href="/impact" className="hover:text-white transition-colors">
                     Impact Stories
                   </Link>
                 </li>
                 <li>
-                  <Link href="#volunteer" className="hover:text-white transition-colors">
+                  <Link href="/volunteer" className="hover:text-white transition-colors">
                     Volunteer
                   </Link>
                 </li>
                 <li>
-                  <Link href="#events" className="hover:text-white transition-colors">
+                  <Link href="/events" className="hover:text-white transition-colors">
                     Events
                   </Link>
                 </li>
@@ -635,27 +637,27 @@ export default function HomePage() {
               <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <Link href="#donate" className="hover:text-white transition-colors">
+                  <Link href="/donate" className="hover:text-white transition-colors">
                     Donate
                   </Link>
                 </li>
                 <li>
-                  <Link href="#sponsor" className="hover:text-white transition-colors">
+                  <Link href="/programs" className="hover:text-white transition-colors">
                     Sponsor a Child
                   </Link>
                 </li>
                 <li>
-                  <Link href="#monthly" className="hover:text-white transition-colors">
+                  <Link href="/donate" className="hover:text-white transition-colors">
                     Monthly Giving
                   </Link>
                 </li>
                 <li>
-                  <Link href="#corporate" className="hover:text-white transition-colors">
+                  <Link href="/programs" className="hover:text-white transition-colors">
                     Corporate Partners
                   </Link>
                 </li>
                 <li>
-                  <Link href="#transparency" className="hover:text-white transition-colors">
+                  <Link href="/impact" className="hover:text-white transition-colors">
                     Financial Reports
                   </Link>
                 </li>
@@ -696,13 +698,13 @@ export default function HomePage() {
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
             <p>&copy; 2024 Mmabiaa Cares. All rights reserved. | Registered Nonprofit Organization</p>
             <div className="flex justify-center space-x-6 mt-2 text-sm">
-              <Link href="#privacy" className="hover:text-white transition-colors">
+              <Link href="#" className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="#terms" className="hover:text-white transition-colors">
+              <Link href="#" className="hover:text-white transition-colors">
                 Terms of Service
               </Link>
-              <Link href="#transparency" className="hover:text-white transition-colors">
+              <Link href="/impact" className="hover:text-white transition-colors">
                 Financial Transparency
               </Link>
             </div>
