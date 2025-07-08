@@ -320,7 +320,7 @@ export default function HomePage() {
               <div className="md:flex">
                 <div className="md:w-1/2">
                   <Image
-                    src="/placeholder.svg?height=400&width=600"
+                    src="https://i.pinimg.com/736x/7e/f2/e5/7ef2e516903ce84af3cf3e19cc82301f.jpg"
                     alt="Children waiting for meals in Ghana school"
                     width={600}
                     height={400}
