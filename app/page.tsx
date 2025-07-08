@@ -252,10 +252,12 @@ export default function HomePage() {
 
               {/* Donate Button */}
               <div className="p-6 border-t border-gray-200 dark:border-gray-800">
+              <Link href="/donate" passHref>
                 <Button className="w-full bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black font-semibold py-3">
                   <Heart className="w-4 h-4 mr-2" />
                   Donate Now
                 </Button>
+              </Link>
               </div>
             </div>
           </div>
