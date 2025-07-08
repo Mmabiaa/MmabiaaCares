@@ -69,7 +69,7 @@ const testimonials = [
     location: "Kumasi, Ghana",
     quote:
       "Mmabiaa Cares provided my children with school supplies and meals when we had nothing. They gave us hope when we needed it most.",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "https://i.pinimg.com/736x/3e/a5/3a/3ea53a9b9230ea9d81923702268e9b13.jpg",
   },
   {
     name: "Dr. Sarah Johnson",
@@ -77,7 +77,7 @@ const testimonials = [
     location: "London, UK",
     quote:
       "I've been supporting Mmabiaa Cares for 2 years. Their transparency and real impact stories keep me motivated to give monthly.",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "https://i.pinimg.com/736x/c6/89/b5/c689b56a63c17cac60d40fa42476c30c.jpg",
   },
   {
     name: "Kwame Asante",
@@ -85,7 +85,7 @@ const testimonials = [
     location: "Accra, Ghana",
     quote:
       "Volunteering with Mmabiaa Cares has been life-changing. We're not just helping others - we're building stronger communities together.",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "https://i.pinimg.com/736x/d2/7f/df/d27fdf3be1e83c9644ee8de59a4675c3.jpg",
   },
 ]
 
