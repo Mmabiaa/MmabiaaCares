@@ -82,7 +82,7 @@ const programs = [
     icon: Shield,
     description:
       "Improving community health through mobile clinics, health education, preventive care, and access to essential medical services.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://i.pinimg.com/736x/2e/a1/ba/2ea1baf61986bee015a19869caadf880.jpg",
     stats: {
       beneficiaries: "3,245",
       communities: "15",
