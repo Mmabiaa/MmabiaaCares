@@ -150,7 +150,7 @@ export default function HomePage() {
     { id: "programs", label: "Programs", icon: Target, href: "/programs" },
     { id: "impact", label: "Impact", icon: Heart, href: "/impact" },
     { id: "volunteer", label: "Volunteer", icon: HandHeart, href: "/volunteer" },
-    { id: "donate", label: "Donate", icon: Heart, href: "/donate" },
+    
   ]
 
   return (
@@ -168,7 +168,7 @@ export default function HomePage() {
                 <h1 className="text-xl font-bold text-gray-900 dark:text-white">Mmabiaa Cares</h1>
                 <p className="text-xs text-gray-600 dark:text-gray-400">Transforming Communities</p>
               </div>
-            </Link>
+              </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-6">
@@ -179,7 +179,7 @@ export default function HomePage() {
                   className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors font-medium"
                 >
                   {item.label}
-                </Link>
+              </Link>
               ))}
               <Button className="bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black">
                 <Link href="/donate">Donate Now</Link>
@@ -199,7 +199,7 @@ export default function HomePage() {
               >
                 <Menu className="w-5 h-5" />
               </Button>
-            </div>
+              </div>
           </div>
         </div>
       </header>
