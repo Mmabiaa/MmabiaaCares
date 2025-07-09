@@ -451,7 +451,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">Financial Transparency</h3>
                 <p className="text-gray-600 mb-4">Annual audits and public financial reporting for donor confidence</p>
                 <Button variant="outline" size="sm">
-                  <Link href="/financial-reports">View Reports</Link>
+                  <Link href="/contact">View Reports</Link>
                 </Button>
               </CardContent>
             </Card>
