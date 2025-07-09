@@ -49,7 +49,7 @@ const programs = [
     icon: GraduationCap,
     description:
       "Empowering communities through quality education, scholarships, literacy programs, and educational infrastructure development.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://i.pinimg.com/1200x/81/7b/78/817b782738959b6710913ce700ff81d3.jpg",
     stats: {
       beneficiaries: "1,847",
       communities: "18",
