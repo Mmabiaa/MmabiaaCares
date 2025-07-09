@@ -115,7 +115,7 @@ const programs = [
     icon: Heart,
     description:
       "Building sustainable livelihoods through skills training, microfinance, women's cooperatives, and child protection programs.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://i.pinimg.com/736x/f4/be/33/f4be331406cc609d79030012e9de2f58.jpg",
     stats: {
       beneficiaries: "892",
       communities: "12",
