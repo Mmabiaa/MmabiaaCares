@@ -22,7 +22,7 @@ const impactStories = [
     location: "Kumasi, Ghana",
     excerpt:
       "When we first met 8-year-old Akosua, she was struggling with malnutrition. Today, she's thriving in school thanks to our daily feeding program.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.pinimg.com/736x/00/a4/11/00a4115a8f0fe7ea1d77370df3e33465.jpg",
     readTime: "5 min read",
     views: 1247,
     shares: 89,
@@ -39,7 +39,7 @@ const impactStories = [
     location: "Ashanti Region, Ghana",
     excerpt:
       "With the help of our skilled volunteers and local community, we've completed construction of a new classroom serving 60 children.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.pinimg.com/1200x/ec/2c/09/ec2c09ac41ebce308da98dbeab823dcd.jpg",
     readTime: "4 min read",
     views: 892,
     shares: 67,
@@ -56,7 +56,7 @@ const impactStories = [
     location: "Northern Region, Ghana",
     excerpt:
       "Our mobile health clinic reached 15 remote villages this month, providing essential healthcare to over 300 people.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.pinimg.com/736x/ed/a8/92/eda892ece52e54ec829a32f1f5f7ced3.jpg",
     readTime: "6 min read",
     views: 1456,
     shares: 134,
@@ -72,7 +72,7 @@ const impactStories = [
     author: "Kwame Osei",
     location: "Central Region, Ghana",
     excerpt: "Twenty women completed our 3-month sewing program, with 15 already starting their own small businesses.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.pinimg.com/736x/63/b0/98/63b09891a2a3c328a2ebc85dd621bf5c.jpg",
     readTime: "3 min read",
     views: 743,
     shares: 52,
@@ -89,7 +89,7 @@ const impactStories = [
     location: "Remote",
     excerpt:
       "How one volunteer's digital marketing expertise helped us reach 10,000 new supporters and increase donations by 40%.",
-    image: "/placeholder.svg?height=300&width=400",
+    image: "https://i.pinimg.com/1200x/5c/a5/6e/5ca56ed1c1082392ffe9803cc7ad665d.jpg",
     readTime: "4 min read",
     views: 634,
     shares: 78,
