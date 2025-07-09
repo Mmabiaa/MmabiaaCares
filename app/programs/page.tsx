@@ -430,7 +430,7 @@ export default function ProgramsPage() {
                     <div className="flex flex-col md:flex-row items-center gap-6">
                       <div className="flex-shrink-0">
                         <Image
-                          src="/placeholder.svg?height=100&width=100"
+                          src="https://i.pinimg.com/736x/c4/21/f5/c421f56fee8d30c150c768f969983c27.jpg"
                           alt={program.testimonial.author}
                           width={100}
                           height={100}
