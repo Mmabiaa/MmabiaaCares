@@ -360,7 +360,7 @@ export default function ProgramsPage() {
                 <div className={index % 2 === 1 ? "lg:col-start-2" : ""}>
                   <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
                     <Image
-                      src={program.image || "/placeholder.svg"}
+                      src={program.image}
                       alt={program.title}
                       fill
                       className="object-cover"
