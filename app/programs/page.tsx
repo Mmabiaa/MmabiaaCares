@@ -16,7 +16,7 @@ const programs = [
     icon: Utensils,
     description:
       "Addressing food insecurity through daily meal programs, emergency food distribution, and nutrition education for vulnerable families and children.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "https://i.pinimg.com/1200x/e7/29/c1/e729c19b8f1fdbf5a5cfec0778367c58.jpg",
     stats: {
       beneficiaries: "2,156",
       communities: "23",
