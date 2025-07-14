@@ -394,20 +394,20 @@ export default function VolunteerPage() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
               <div>
-                <div className="text-2xl font-bold text-black">247</div>
-                <div className="text-sm text-gray-600">Active Volunteers</div>
+                <div className="text-2xl font-bold text-white">247</div>
+                <div className="text-sm text-white">Active Volunteers</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-black">23</div>
-                <div className="text-sm text-gray-600">Countries</div>
+                <div className="text-2xl font-bold text-white">23</div>
+                <div className="text-sm text-white">Countries</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-black">6</div>
-                <div className="text-sm text-gray-600">Volunteer Roles</div>
+                <div className="text-2xl font-bold text-white">6</div>
+                <div className="text-sm text-white">Volunteer Roles</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-black">4.9</div>
-                <div className="text-sm text-gray-600">Satisfaction Rating</div>
+                <div className="text-2xl font-bold text-white">4.9</div>
+                <div className="text-sm text-white">Satisfaction Rating</div>
               </div>
             </div>
           </div>
