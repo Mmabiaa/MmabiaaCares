@@ -50,32 +50,32 @@ const teamMembers = [
 
 const milestones = [
   {
-    year: "2019",
+    year: "2024",
     title: "Foundation Established",
     description: "Mmabiaa Cares officially registered as a nonprofit organization in Ghana",
   },
   {
-    year: "2020",
+    year: "2025",
     title: "First Food Program",
     description: "Launched emergency food distribution during COVID-19 pandemic",
   },
   {
-    year: "2021",
+    year: "2025",
     title: "Education Initiative",
     description: "Started school feeding program and scholarship fund for vulnerable children",
   },
   {
-    year: "2022",
+    year: "2025",
     title: "Healthcare Expansion",
     description: "Opened mobile health clinic serving 15 rural communities",
   },
   {
-    year: "2023",
+    year: "2025",
     title: "Women's Empowerment",
     description: "Launched microfinance and skills training programs for women",
   },
   {
-    year: "2024",
+    year: "2025",
     title: "International Recognition",
     description: "Received UN Sustainable Development Goals Partnership Award",
   },
