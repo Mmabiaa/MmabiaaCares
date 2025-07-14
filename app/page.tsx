@@ -103,7 +103,9 @@ const heroCarouselImages = [
   "https://i.pinimg.com/736x/66/0e/ef/660eef3ef655750b7f5940a88098e314.jpg",
   "https://i.pinimg.com/736x/b3/ca/59/b3ca59412cafcf6e12dc8b243470b9ba.jpg",
   "https://i.pinimg.com/736x/f7/d7/d0/f7d7d0ccfd7bbf564ec2a7df2023c618.jpg",
-  "https://i.pinimg.com/736x/01/ee/d8/01eed8876e5fcb994542f3c931faedc5.jpg"
+  "https://i.pinimg.com/736x/01/ee/d8/01eed8876e5fcb994542f3c931faedc5.jpg",
+  "https://i.pinimg.com/736x/ab/62/de/ab62ded6fb63594397bf43cf4186795a.jpg",
+  "https://i.pinimg.com/736x/d4/e8/62/d4e862aede0dff7df3f3255ff8661fc3.jpg"
 ]
 
 export default function HomePage() {

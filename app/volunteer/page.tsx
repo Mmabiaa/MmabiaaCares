@@ -54,6 +54,9 @@ const volunteerRoles = [
       author: "Sarah Mitchell",
       role: "Field Volunteer 2023",
     },
+    photos: [
+      "https://i.pinimg.com/736x/f4/be/33/f4be331406cc609d79030012e9de2f58.jpg"
+    ],
   },
   {
     id: "education-specialist",
@@ -75,6 +78,9 @@ const volunteerRoles = [
       author: "Michael Chen",
       role: "Education Volunteer",
     },
+    photos: [
+      "https://via.placeholder.com/300x200?text=Volunteer+Photo"
+    ],
   },
   {
     id: "healthcare-volunteer",
@@ -96,6 +102,9 @@ const volunteerRoles = [
       author: "Dr. Amelia Rodriguez",
       role: "Medical Volunteer",
     },
+    photos: [
+      "https://via.placeholder.com/300x200?text=Volunteer+Photo"
+    ],
   },
   {
     id: "digital-marketing",
@@ -117,6 +126,9 @@ const volunteerRoles = [
       author: "Jessica Park",
       role: "Digital Marketing Volunteer",
     },
+    photos: [
+      "https://via.placeholder.com/300x200?text=Volunteer+Photo"
+    ],
   },
   {
     id: "photographer",
@@ -138,6 +150,9 @@ const volunteerRoles = [
       author: "David Kim",
       role: "Photography Volunteer",
     },
+    photos: [
+      "https://via.placeholder.com/300x200?text=Volunteer+Photo"
+    ],
   },
   {
     id: "skilled-trades",
@@ -159,6 +174,9 @@ const volunteerRoles = [
       author: "Robert Thompson",
       role: "Construction Volunteer",
     },
+    photos: [
+      "https://via.placeholder.com/300x200?text=Volunteer+Photo"
+    ],
   },
 ]
 
@@ -425,10 +443,18 @@ export default function VolunteerPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {volunteerRoles.map((role) => (
               <Card key={role.id} className="border-0 shadow-lg hover:shadow-xl transition-shadow overflow-hidden">
-                <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <role.icon className="w-16 h-16 text-black" />
-                  </div>
+                <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                  {role.photos && role.photos.length > 0 ? (
+                    <Image
+                      src={role.photos[0]}
+                      alt={`${role.title} photo`}
+                      fill
+                      className="object-cover z-0 rounded"
+                      style={{ objectFit: 'cover' }}
+                    />
+                  ) : (
+                    <role.icon className="w-16 h-16 text-black z-10" />
+                  )}
                   <Badge className="absolute top-4 left-4 bg-black text-white">{role.commitment}</Badge>
                 </div>
                 <CardContent className="p-6">
@@ -490,7 +516,7 @@ export default function VolunteerPage() {
                   <blockquote className="text-gray-700 mb-4 leading-relaxed">"{role.testimonial.quote}"</blockquote>
                   <div className="flex items-center">
                     <Image
-                      src="/placeholder.svg?height=50&width=50"
+                      src="https://i.pinimg.com/736x/95/0b/22/950b22d7b322da10d3abbe01cbce0471.jpg"
                       alt={role.testimonial.author}
                       width={50}
                       height={50}
