@@ -42,7 +42,7 @@ const teamMembers = [
     role: "International Relations",
     bio: "Bridges our Ghana operations with international donors and volunteers, ensuring transparent communication.",
     quote: "Transparency builds trust, and trust builds lasting partnerships.",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://i.pinimg.com/736x/a8/3b/6b/a83b6bdb1ef43f9f47ff1a4b511c6d46.jpg",
     email: "sarah@mmabiaacares.org",
     linkedin: "#",
   },
