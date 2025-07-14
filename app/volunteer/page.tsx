@@ -384,11 +384,11 @@ export default function VolunteerPage() {
         <div className="container mx-auto px-4 relative z-20">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-6 bg-black text-white">Join Our Mission</Badge>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Volunteer with
-              <span className="block text-black">Mmabiaa Cares</span>
+              <span className="block text-white">Mmabiaa Cares</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-white mb-8 leading-relaxed">
               Join our global community of volunteers making a real difference in Ghana. Whether you can spare a few
               hours online or several weeks in the field, your skills and passion can transform lives.
             </p>
