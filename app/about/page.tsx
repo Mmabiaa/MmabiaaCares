@@ -33,7 +33,7 @@ const teamMembers = [
     role: "Operations Manager",
     bio: "Local community leader with deep connections across Ashanti region and 10+ years in nonprofit management.",
     quote: "Real change happens when communities lead their own transformation.",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://i.pinimg.com/1200x/c9/31/45/c931451ef5a9518b2317f4ca2615069e.jpg",
     email: "kwame@mmabiaacares.org",
     linkedin: "#",
   },
