@@ -373,7 +373,7 @@ export default function VolunteerPage() {
       <section className="relative py-20 bg-gradient-to-r from-gray-50 to-gray-100 overflow-hidden">
         {/* Background image */}
         <Image
-          src="https://i.pinimg.com/736x/de/f9/7d/def97d738a32ea2681bc929785c1ebfe.jpg"
+          src="https://i.pinimg.com/736x/a8/3b/6b/a83b6bdb1ef43f9f47ff1a4b511c6d46.jpg"
           alt="Volunteer background"
           fill
           className="object-cover z-0"
