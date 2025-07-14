@@ -15,7 +15,7 @@ const teamMembers = [
     role: "Founder & Executive Director",
     bio: "With over 15 years in community development, Rev. Asante founded Mmabiaa Cares to serve the most vulnerable communities in Ghana.",
     quote: "I serve because Christ calls us to love our neighbors as ourselves.",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://i.pinimg.com/1200x/58/ad/7a/58ad7a0e9878f69f6c8a5a93c60ca2d7.jpg",
     email: "emmanuel@mmabiaacares.org",
     linkedin: "#",
   },
