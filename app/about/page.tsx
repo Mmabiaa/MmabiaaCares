@@ -24,7 +24,7 @@ const teamMembers = [
     role: "Program Director",
     bio: "Former WHO consultant with expertise in public health and community nutrition programs across West Africa.",
     quote: "Every child deserves the chance to reach their full potential.",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://i.pinimg.com/1200x/81/7b/78/817b782738959b6710913ce700ff81d3.jpg",
     email: "akosua@mmabiaacares.org",
     linkedin: "#",
   },
