@@ -311,8 +311,18 @@ export default function HomePage() {
               ))}
             </CarouselContent>
             {/* Carousel navigation buttons */}
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-black" />
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/70 hover:bg-white text-black" />
+            <CarouselPrevious 
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full shadow-lg transition-all duration-200"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </CarouselPrevious>
+            <CarouselNext 
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full shadow-lg transition-all duration-200"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </CarouselNext>
           </Carousel>
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40 z-10"></div>
