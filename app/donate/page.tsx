@@ -16,12 +16,12 @@ import { ThemeToggle } from "@/components/ui/theme-toggle"
 const donationAmounts = [25, 50, 100, 250, 500, 1000]
 
 const impactDescriptions = {
-  25: "Feeds 8 children for one day",
-  50: "Provides school supplies for 2 children",
-  100: "Supports a family's healthcare for one month",
-  250: "Funds skills training for 5 women",
-  500: "Sponsors a child's education for one term",
-  1000: "Supports mobile clinic operations for one week",
+  25: "",
+  50: "",
+  100: "",
+  250: "",
+  500: "",
+  1000: "",
 }
 
 const recentDonors = [
