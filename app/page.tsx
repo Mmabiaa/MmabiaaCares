@@ -333,27 +333,33 @@ export default function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold">
-              <Heart className="w-5 h-5 mr-2" />
-              Donate Now
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg bg-transparent"
-            >
-              <Users className="w-5 h-5 mr-2" />
-              Volunteer Today
-            </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              className="text-white hover:bg-white/20 px-8 py-4 text-lg"
-              onClick={() => setIsVideoPlaying(true)}
-            >
-              <Play className="w-5 h-5 mr-2" />
-              See Our Work
-            </Button>
+            <Link href="/donate" passHref>
+              <Button size="lg" className="bg-black hover:bg-gray-800 text-white px-8 py-4 text-lg font-semibold">
+                <Heart className="w-5 h-5 mr-2" />
+                Donate Now
+              </Button>
+            </Link>
+            <Link href="/volunteer" passHref>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg bg-transparent"
+              >
+                <Users className="w-5 h-5 mr-2" />
+                Volunteer Today
+              </Button>
+            </Link>
+            <Link href='/programs'>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-white hover:bg-white/20 px-8 py-4 text-lg"
+                onClick={() => setIsVideoPlaying(true)}
+              >
+                <Play className="w-5 h-5 mr-2" />
+                See Our Work
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-12 text-sm text-white/80">
