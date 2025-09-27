@@ -183,9 +183,11 @@ export default function HomePage() {
                   {item.label}
               </Link>
               ))}
+              <Link href="/donate">
               <Button className="bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 text-white dark:text-black">
-                <Link href="/donate">Donate Now</Link>
+                Donate Now
               </Button>
+              </Link>
               <ThemeToggle />
             </nav>
 
